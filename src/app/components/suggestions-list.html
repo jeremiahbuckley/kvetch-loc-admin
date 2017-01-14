@@ -1,0 +1,23 @@
+hi from suggestionsList
+<div class="container">
+	<div class="row">
+		Voters
+	</div>
+	<div class="row">
+		<div class="col-xs-3">Id</div>
+		<div class="col-xs-3">Name</div>
+		<div class="col-xs-2">Password</div>
+	</div>
+	<div ng-repeat="voter in $ctrl.voters">
+		<div class="row">
+			<div class="col-xs-3">{{voter._id}}</div>
+			<div class="col-xs-3">{{voter.name}}</div>
+			<div class="col-xs-2">{{voter.password}}</div>
+			<div class="col-xs-1">
+				<button ng-click="$ctrl.delete(voter._id)">
+					Delete
+				</button>
+			</div>
+		</div>
+	</div>
+</div>

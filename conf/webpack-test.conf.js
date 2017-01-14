@@ -28,6 +28,14 @@ module.exports = {
         loaders: [
           'html'
         ]
+      },
+      {
+        test: /\.(eot|woff|woff2|ttf|png|jpe?g|gif)(\?\S*)?$/,
+        loader: 'url?limit=100000@name=[name][ext]'
+      },
+      {
+        test: /\.svg(\?\S*)?$/,
+        loader: 'url?mimetype=image/svg+xml'
       }
     ]
   },
