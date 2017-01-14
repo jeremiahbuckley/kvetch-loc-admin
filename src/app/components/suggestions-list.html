@@ -1,22 +1,24 @@
-hi from suggestionsList
 <div class="container">
 	<div class="row">
-		Voters
+		Suggestions
 	</div>
 	<div class="row">
 		<div class="col-xs-3">Id</div>
-		<div class="col-xs-3">Name</div>
-		<div class="col-xs-2">Password</div>
+		<div class="col-xs-3">From</div>
+		<div class="col-xs-2">Message</div>
 	</div>
-	<div ng-repeat="voter in $ctrl.voters">
-		<div class="row">
-			<div class="col-xs-3">{{voter._id}}</div>
-			<div class="col-xs-3">{{voter.name}}</div>
-			<div class="col-xs-2">{{voter.password}}</div>
+	<div ng-repeat="suggestion in $ctrl.suggestions">
+		<div class="panel panel-default panel-body">
+			<div class="col-xs-3">{{suggestion._id}}</div>
+			<div class="col-xs-3">{{suggestion.name}}</div>
+			<div class="col-xs-2">{{suggestion.message}}</div>
 			<div class="col-xs-1">
-				<button ng-click="$ctrl.delete(voter._id)">
-					Delete
-				</button>
+			  <button type="button" class="btn btn-default btn-small">
+			    <span class="glyphicon glyphicon-star-empty"></span>
+			  </button>
+			  <button type="button" class="btn btn-default btn-small">
+			    <span class="glyphicon glyphicon-unchecked"></span>
+			  </button>
 			</div>
 		</div>
 	</div>
