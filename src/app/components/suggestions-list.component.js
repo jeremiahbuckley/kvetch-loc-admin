@@ -2,7 +2,8 @@ class SuggestionsListController {
   constructor($state, $log, SuggestionsList) {
     this.$state = $state;
     this.$log = $log;
-    this.suggestions = SuggestionsList.get();
+    this.masterSuggestionsList = SuggestionsList.get();
+    this.suggestions = this.masterSuggestionsList;
   }
 
   itemRead(id) {
@@ -19,6 +20,26 @@ class SuggestionsListController {
         item.todo = !item.todo;
       }
     });
+  }
+
+  onFilterChanged(filter) {
+    let newList = [];
+    if (filter === 'starred') {
+      this.masterSuggestionsList.forEach(item => {
+        if (item.starred) {
+          newList.push(item);
+        }
+      });
+    } else if (filter === 'read') {
+      this.masterSuggestionsList.forEach(item => {
+        if (item.read) {
+          newList.push(item);
+        }
+      });
+    } else {
+      newList = this.masterSuggestionsList;
+    }
+    this.suggestions = newList;
   }
 }
 
