@@ -17,7 +17,7 @@ class SuggestionsListController {
   starItem(id) {
     this.suggestions.forEach(item => {
       if (item._id === id) {
-        item.todo = !item.todo;
+        item.starred = !item.starred;
       }
     });
   }
