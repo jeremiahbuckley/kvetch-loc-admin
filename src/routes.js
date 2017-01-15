@@ -14,5 +14,9 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
       url: '/suggestions',
       component: 'suggestionsList'
     })
+    .state('login', {
+      url: '/login',
+      component: 'login'
+    })
 ;
 }

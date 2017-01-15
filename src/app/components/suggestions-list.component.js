@@ -4,8 +4,10 @@ class SuggestionsListController {
     this.$log = $log;
     this.masterSuggestionsList = SuggestionsList.get();
     this.suggestions = this.masterSuggestionsList;
-    this.filterOnRead = true;
-    this.filterOnStarred = false;
+    this.viewReadSuggestions = true;
+    this.viewStarredSuggestions = false;
+
+    this.applyFilter();
   }
 
   itemRead(id) {
@@ -14,6 +16,7 @@ class SuggestionsListController {
         item.read = !item.read;
       }
     });
+    this.applyFilter();
   }
 
   starItem(id) {
@@ -22,20 +25,26 @@ class SuggestionsListController {
         item.starred = !item.starred;
       }
     });
+    this.applyFilter();
   }
 
   onFilterChanged(filter, value) {
-    const newList = [];
     if (filter === 'starred') {
-      this.filterOnStarred = value;
+      this.viewStarredSuggestions = value;
     } else if (filter === 'read') {
-      this.filterOnRead = value;
+      this.viewReadSuggestions = value;
     } else {
       this.$log.log('incorrect filter value.');
     }
+    this.applyFilter();
+  }
+
+  applyFilter() {
+    const newList = [];
     this.masterSuggestionsList.forEach(item => {
-      if ((this.filterOnStarred || !item.starred) &&
-        (this.filterOnRead || !item.read)) {
+      if ((this.viewStarredSuggestions && item.starred) ||
+        (this.viewReadSuggestions && item.read) ||
+        (!item.starred && !item.read)) {
         newList.push(item);
       }
     });

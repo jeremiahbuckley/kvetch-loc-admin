@@ -3,7 +3,14 @@ class SuggestionsSearchController {
     this.$state = $state;
     this.$log = $log;
     this.filterOnRead = true;
-    this.filterOnStarred = false;
+    this.filterOnStarred = true;
+
+    this.textReadDisabled = "Show Read Suggestions";
+    this.textReadEnabled = "Read Suggestions Shown";
+    this.textStarredDisabled = "Show Starred Suggestions";
+    this.textStarredEnabled = "Starred Suggestions Shown";
+
+    this.setFilterButtonText();
   }
 
   onClick(filterType) {
@@ -19,8 +26,25 @@ class SuggestionsSearchController {
     } else {
       this.$log.log('incorrect filter value.');
     }
+
+    this.setFilterButtonText();
+
     if (this.onFilterChanged) {
       this.onFilterChanged({filter: filterType, value: val});
+    }
+  }
+
+  setFilterButtonText() {
+    if (this.filterOnRead) {
+      this.readText = this.textReadEnabled;
+    } else {
+      this.readText = this.textReadDisabled;
+    }
+
+    if (this.filterOnStarred) {
+      this.starredText = this.textStarredEnabled;
+    } else {
+      this.starredText = this.textStarredDisabled;
     }
   }
 }
