@@ -3,21 +3,27 @@
 		Suggestions
 	</div>
 	<div class="row">
-		<div class="col-xs-3">Id</div>
-		<div class="col-xs-3">From</div>
-		<div class="col-xs-2">Message</div>
+		<div class="col-xs-1">Id</div>
+		<div class="col-xs-2">From</div>
+		<div class="col-xs-4">Message</div>
 	</div>
 	<div ng-repeat="suggestion in $ctrl.suggestions">
 		<div class="panel panel-default panel-body">
-			<div class="col-xs-3">{{suggestion._id}}</div>
-			<div class="col-xs-3">{{suggestion.name}}</div>
-			<div class="col-xs-2">{{suggestion.message}}</div>
-			<div class="col-xs-1">
-			  <button type="button" class="btn btn-default btn-small">
-			    <span class="glyphicon glyphicon-star-empty"></span>
+			<div class="col-xs-1">{{suggestion._id}}</div>
+			<div class="col-xs-2">{{suggestion.name}}</div>
+			<div class="col-xs-4">{{suggestion.message}}</div>
+			<div class="col-xs-2">
+			  <button type="button" class="btn btn-default btn-small" active="suggestion.todo" ng-click="$ctrl.starItem(suggestion._id)">
+	            <span ng-switch on="suggestion.todo">
+	              <i class="glyphicon glyphicon-star" ng-switch-when="true"></i>
+	              <i class="glyphicon glyphicon-star-empty" ng-switch-when="false"></i>
+	            </span>
 			  </button>
-			  <button type="button" class="btn btn-default btn-small">
-			    <span class="glyphicon glyphicon-unchecked"></span>
+			  <button type="button" class="btn btn-default btn-small" active="suggestion.read" ng-click="$ctrl.itemRead(suggestion._id)">
+	            <span ng-switch on="suggestion.read">
+	              <i class="glyphicon glyphicon-check" ng-switch-when="true"></i>
+	              <i class="glyphicon glyphicon-unchecked" ng-switch-when="false"></i>
+	            </span>
 			  </button>
 			</div>
 		</div>
