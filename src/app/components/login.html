@@ -1,15 +1,41 @@
-<div class="container">
-  <div class="input-group">
-    <span class="input-group-addon" id="user-name-lbl">User name</span>
-    <input type="text" class="form-control" id="user-name" aria-describedby="user-name-lbl">
+<div class="container-fluid login">
+  <div class="row">
+  	<div class="col-xs-6 pull-right">
+  	  <div class="row">
+  		<span class="col-xs-8">
+	 		<div class="input-group">
+	    		<span class="input-group-addon" id="user-name-lbl">User&nbsp;name</span>
+	    		<input type="text" class="form-control" id="user-name" aria-describedby="user-name-lbl">
+			</div>
+		</span>
+	    <span class="col-xs-4"/>
+	  </div>
+  	  <div class="row">
+  		<span class="col-xs-8">
+	 		<div class="input-group">
+			    <span class="input-group-addon" id="location-lbl">Location&nbsp;&nbsp;&nbsp;&nbsp;</span>
+			    <input type="text" class="form-control" id="location" aria-describedby="location-lbl">
+			</div>
+		</span>
+	    <span class="col-xs-4"/>
+	  </div>
+  	  <div class="row">
+  		<span class="col-xs-8">
+	 		<div class="input-group">
+			    <span class="input-group-addon" id="password-lbl">Password&nbsp;&nbsp;</span>
+			    <input type="text" class="form-control" id="password" aria-describedby="password-lbl">
+			</div>
+		</span>
+	    <span class="col-xs-4"/>
+	  </div>
+	  <div class="row">
+	  	<span class="col-xs-8">
+		  <div class="pull-right">
+			<button type="button" class="btn btn-default" ng-click="loginClick">Login</button>
+		  </div>
+	  	</span>
+		<span class="col-xs-4"/>
+	  </div>
+  	</div>
   </div>
-  <div class="input-group">
-    <span class="input-group-addon" id="location-lbl">Location</span>
-    <input type="text" class="form-control" id="location" aria-describedby="location-lbl">
-  </div>
-  <div class="input-group">
-    <span class="input-group-addon" id="password-lbl">Password</span>
-    <input type="text" class="form-control" id="password" aria-describedby="password-lbl">
-  </div>
-  <button class="button button-default" ng-click="loginClick">Login</button>
 </div>
