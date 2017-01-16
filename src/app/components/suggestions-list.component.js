@@ -5,7 +5,7 @@ class SuggestionsListController {
     this.masterSuggestionsList = SuggestionsList.get();
     this.suggestions = this.masterSuggestionsList;
     this.viewReadSuggestions = true;
-    this.viewStarredSuggestions = false;
+    this.viewStarredSuggestions = true;
 
     this.applyFilter();
   }

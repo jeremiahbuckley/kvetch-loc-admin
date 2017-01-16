@@ -1,19 +1,10 @@
+<suggestions-search on-filter-changed="$ctrl.onFilterChanged(filter, value)"></suggestions-search>
 <div class="container">
-    <suggestions-search on-filter-changed="$ctrl.onFilterChanged(filter, value)"></suggestions-search>
-<!-- 	<div class="row">
-		Suggestions
-	</div>
- --><!-- 	<div class="row">
-		<div class="col-xs-1">Id</div>
-		<div class="col-xs-2">From</div>
-		<div class="col-xs-4">Message</div>
-	</div>
- -->	
 	<div ng-repeat="suggestion in $ctrl.suggestions">
 		<div class="panel panel-default panel-body">
 			<div class="col-xs-1">{{suggestion._id}}</div>
 			<div class="col-xs-2">{{suggestion.name}}</div>
-			<div class="col-xs-4">{{suggestion.message}}</div>
+			<div class="col-xs-7">{{suggestion.message}}</div>
 			<div class="col-xs-2">
 			  <button type="button" class="btn btn-default btn-small" active="suggestion.todo" ng-click="$ctrl.starItem(suggestion._id)">
 	            <span ng-switch on="suggestion.starred">
