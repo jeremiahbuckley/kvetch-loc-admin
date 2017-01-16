@@ -7,6 +7,17 @@ export default class SuggestionsListService {
   }
 
   get() {
+    return this.get1({});
+  }
+
+  get1(config) {
+    if (config.headers) {
+      config.headers = config.headers || {};
+      if (this.$window.sessionStorage.token) {
+        config.headers.Authorization = `Bearer {this.$window.sessionStorage.token}`;
+      }
+    }
+
     return [
       {
         _id: 3,
