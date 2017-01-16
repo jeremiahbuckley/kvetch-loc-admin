@@ -15,7 +15,7 @@ class LoginController {
     }
 
     // https://auth0.com/blog/angularjs-authentication-with-cookies-vs-token/
-    
+
     // $http
     //   .post('/authenticate', $scope.user)
     //   .success(function (data, status, headers, config) {
